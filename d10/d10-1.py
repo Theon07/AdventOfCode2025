@@ -1,3 +1,4 @@
+// install z3-solver
 import z3
 
 total = 0
@@ -7,7 +8,6 @@ for line in open(0):
     if not line:
         continue
 
-    # --- robust parsing ---
     sep1 = line.index(']')
     sep2 = line.index('{')
 
@@ -21,7 +21,6 @@ for line in open(0):
 
     joltages = list(map(int, joltages_part.split(',')))
 
-    # --- Z3 model ---
     o = z3.Optimize()
 
     vars = [z3.Int(f"n{i}") for i in range(len(buttons))]
